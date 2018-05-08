@@ -28,7 +28,7 @@ describe('docs page tests', function () {
         expect(await checkHeader).toBe('What is Angular?');
     });
 
-    it('check container on Resources page', async function () {
+    xit('check container on Resources page', async function () {
         await docsPage.resourcesButton.click();
         await docsPage.resourcesContainer.isDisplayed();
     });
@@ -50,7 +50,7 @@ describe('docs page tests', function () {
         expect(await docsPage.listOfButtons.count()).toBe(6);
     });
 
-    it('check buttons in header on Docs page', async function () {
+    xit('check buttons in header on Docs page', async function () {
         let buttons = await docsPage.listOfButtons.map(function (elem, index) {
             return {
                 index: index,

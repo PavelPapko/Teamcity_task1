@@ -54,7 +54,7 @@ describe('navigation drawer tests', function () {
         });
     });
 
-    it('check header text on Language service page', function (done) {
+    xit('check header text on Language service page', function (done) {
         navDrawerPage.techniquesDropdown.click().then(function () {
             navDrawerPage.languageServiceTab.click().then(function () {
                 navDrawerPage.languageServiceTabh2.getText().then(function (text) {
