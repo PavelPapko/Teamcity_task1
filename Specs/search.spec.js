@@ -8,7 +8,7 @@ describe('search module tests', function () {
         browser.get('https://angular.io/docs').then(done).catch(done.fail);
     });
 
-    it('input valid data in search field', function (done) {
+    xit('input valid data in search field', function (done) {
         searchPage.searchField.click().then(function () {
             searchPage.searchField.sendKeys('get').then(function () {
                 browser.wait(isDisplay, 5000, 'Превышено время ожидания!').then(function () {
