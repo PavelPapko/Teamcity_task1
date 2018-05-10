@@ -4,7 +4,7 @@ describe('docs page tests', function () {
     var EC = protractor.ExpectedConditions;
     var isDisplayTable = EC.visibilityOf(docsPage.eventsTable);
     var isDisplay = EC.visibilityOf(docsPage.blogUrlWait);
-
+//
     beforeEach(async function () {
         await browser.get('https://angular.io/docs');
     });
