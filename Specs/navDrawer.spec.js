@@ -6,61 +6,50 @@ describe('navigation drawer tests', function () {
         browser.get('https://angular.io/docs').then(done).catch(done.fail);
     });
 
-    xit('check container on Getting Started page', function (done) {
-        navDrawerPage.gettingStarted.click().then(function () {
-            navDrawerPage.gettingStartedContainer.isDisplayed();
-        }).then(done).catch(done.fail);
+    it('check container on Getting Started page', function (done) {
+        navDrawerPage.gettingStarted.click().then();
+        navDrawerPage.gettingStartedContainer.isDisplayed()
+            .then(done).catch(done.fail);
     });
 
-    xit('Tutorial Open&Close', function (done) {
-        navDrawerPage.tutorialDropdown.click().then(function () {
-            navDrawerPage.tutorialDropdown.click().then(function () {
-                navDrawerPage.tutorialDropdownClose.isPresent();
-            }).then(done).catch(done.fail);
-        });
+    it('Tutorial Open&Close', function (done) {
+        navDrawerPage.tutorialDropdown.click().then();
+        navDrawerPage.tutorialDropdown.click().then();
+        navDrawerPage.tutorialDropdownClose.isPresent()
+            .then(done).catch(done.fail);
     });
 
-    xit('Navigation Drawer Close When Tutorial Open', function (done) {
-        navDrawerPage.tutorialDropdown.click().then(function () {
-            navDrawerPage.docsMenuButton.click().then(function () {
-                navDrawerPage.docsMenuButton.click().then(function () {
-                    navDrawerPage.tutorialDropdownElementsText.isDisplayed();
-                }).then(done).catch(done.fail);
-            });
-        });
+    it('Navigation Drawer Close When Tutorial Open', function (done) {
+        navDrawerPage.tutorialDropdown.click().then();
+        navDrawerPage.docsMenuButton.click().then();
+        navDrawerPage.docsMenuButton.click().then();
+        navDrawerPage.tutorialDropdownElementsText.isDisplayed()
+            .then(done).catch(done.fail);
     });
 
-    xit('check elements on Tutorial dropdown', function (done) {
-        navDrawerPage.tutorialDropdown.click().then(function () {
-            navDrawerPage.tutorialDropdownList.isPresent();
-        }).then(done).catch(done.fail);
+    it('check elements on Tutorial dropdown', async function () {
+        await navDrawerPage.tutorialDropdown.click();
+        await navDrawerPage.tutorialDropdownList.isPresent()
     });
 
-    xit('check header on Introduction Page', function (done) {
-        navDrawerPage.tutorialDropdown.click().then(function () {
-            navDrawerPage.tutorialPart1.click().then(function () {
-                navDrawerPage.tutorialIntroductionHeader.isPresent();
-            }).then(done).catch(done.fail);
-        });
+    it('check header on Introduction Page', function (done) {
+        navDrawerPage.tutorialDropdown.click().then();
+        navDrawerPage.tutorialPart1.click().then();
+        navDrawerPage.tutorialIntroductionHeader.isPresent()
+            .then(done).catch(done.fail);
     });
 
-    xit('check header text on Services page', function (done) {
-        navDrawerPage.tutorialDropdown.click().then(function () {
-            navDrawerPage.tutorialPart6.click().then(function () {
-                navDrawerPage.servicesHeader.getText().then(function (text) {
-                    expect(text).toBe('Services');
-                }).then(done).catch(done.fail);
-            });
-        });
+    it('check header text on Services page', async function () {
+        await navDrawerPage.tutorialDropdown.click();
+        await navDrawerPage.tutorialPart6.click();
+        let headerText = navDrawerPage.servicesHeader.getText();
+        expect(await headerText).toBe('Services');
     });
 
-    xit('check header text on Language service page', function (done) {
-        navDrawerPage.techniquesDropdown.click().then(function () {
-            navDrawerPage.languageServiceTab.click().then(function () {
-                navDrawerPage.languageServiceTabh2.getText().then(function (text) {
-                    expect(text).toBe('Autocompletion');
-                }).then(done).catch(done.fail);
-            });
-        });
+    it('check header text on Language service page', async function () {
+        await navDrawerPage.techniquesDropdown.click().then();
+        await navDrawerPage.languageServiceTab.click().then();
+        let headerTexth2 = navDrawerPage.languageServiceTabh2.getText();
+        expect(await headerTexth2).toBe('Autocompletion');
     });
 });

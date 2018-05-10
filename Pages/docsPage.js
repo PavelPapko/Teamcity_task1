@@ -2,7 +2,7 @@ var docsPage =  function () {
 
     this.homeButton = $('[title="Home"]');
     this.featuresButton = $('[title="Features"]');
-    this.featuresHeader = $('.marketing-banner');
+    this.featuresHeader = $('#features--benefits');
     this.docsButton = $('[title="Docs"]');
     this.resourcesButton = $('[title="Resources"]');
     this.eventsButton = $('[title="Events"]');
