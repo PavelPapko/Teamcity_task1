@@ -20,8 +20,8 @@ describe('search module tests', function () {
         await searchPage.searchField.click();
         await searchPage.searchField.sendKeys('qwerty');
         browser.wait(isDisplay, 5000, 'Превышено время ожидания!');
-        let checkSearchRes = searchPage.searchResultNotValid.getText();
-        expect(await checkSearchRes).toBe('Searching ...');
+        let checkSearchRes = await searchPage.searchResultNotValid.getText();
+        expect(checkSearchRes).toBe('Searching ...');
     });
 
 });

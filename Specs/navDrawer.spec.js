@@ -2,41 +2,47 @@ describe('navigation drawer tests', function () {
 
     var navDrawerPage = require('../Pages/navDrawerPage');
 
-    beforeEach(function (done) {
-        browser.get('https://angular.io/docs').then(done).catch(done.fail);
+    var EC = protractor.ExpectedConditions;
+    var isDisplay = EC.visibilityOf(navDrawerPage.headerStep3GettingStarted);
+
+    beforeEach(async function () {
+        await browser.get('https://angular.io/docs');
     });
 
-    it('check container on Getting Started page', function (done) {
-        navDrawerPage.gettingStarted.click().then();
-        navDrawerPage.gettingStartedContainer.isDisplayed()
-            .then(done).catch(done.fail);
+    it('check container on Getting Started page', async function () {
+        await navDrawerPage.gettingStarted.click();
+        await navDrawerPage.gettingStartedContainer.isDisplayed();
+        await navDrawerPage.navGettingStarted.isDisplayed();
+        await navDrawerPage.titleNavGettingStarted.click();
+        let text = await navDrawerPage.headerStep3GettingStarted.getText();
+        expect(text).toBe('Step 3: Serve the application')
     });
 
-    it('Tutorial Open&Close', function (done) {
-        navDrawerPage.tutorialDropdown.click().then();
-        navDrawerPage.tutorialDropdown.click().then();
-        navDrawerPage.tutorialDropdownClose.isPresent()
-            .then(done).catch(done.fail);
+    it('Tutorial Open&Close', async function () {
+        await navDrawerPage.tutorialDropdown.click();
+        await navDrawerPage.tutorialDropdown.click();
+        await navDrawerPage.tutorialDropdownClose.isPresent()
     });
 
-    it('Navigation Drawer Close When Tutorial Open', function (done) {
-        navDrawerPage.tutorialDropdown.click().then();
-        navDrawerPage.docsMenuButton.click().then();
-        navDrawerPage.docsMenuButton.click().then();
-        navDrawerPage.tutorialDropdownElementsText.isDisplayed()
-            .then(done).catch(done.fail);
+    it('Navigation Drawer Close When Tutorial Open', async function () {
+        await navDrawerPage.tutorialDropdown.click();
+        await navDrawerPage.docsMenuButton.click();
+        await navDrawerPage.docsMenuButton.click();
+        let text = await navDrawerPage.tutorialPart1.getText();
+        expect(text).toBe('1. Introduction');
     });
 
     it('check elements on Tutorial dropdown', async function () {
         await navDrawerPage.tutorialDropdown.click();
-        await navDrawerPage.tutorialDropdownList.isPresent()
+        await navDrawerPage.tutorialDropdownList.isPresent();
     });
 
-    it('check header on Introduction Page', function (done) {
-        navDrawerPage.tutorialDropdown.click().then();
-        navDrawerPage.tutorialPart1.click().then();
-        navDrawerPage.tutorialIntroductionHeader.isPresent()
-            .then(done).catch(done.fail);
+    it('check header on Introduction Page', async function () {
+        await navDrawerPage.tutorialDropdown.click();
+        await navDrawerPage.tutorialPart1.click();
+        await navDrawerPage.tutorialIntroductionHeader.isPresent();
+        let introductionHeader = await navDrawerPage.tutorialIntroductionHeader.getText();
+        expect(introductionHeader).toBe('Tutorial: Tour of Heroes');
     });
 
     it('check header text on Services page', async function () {

@@ -17,8 +17,21 @@ describe('docs page tests', function () {
     it('check header on Features page', async function () {
         await docsPage.featuresButton.click();
         await docsPage.featuresHeader.isDisplayed();
-        let checkHeader = docsPage.featuresHeader.getText();
-        expect(await checkHeader).toBe('FEATURES & BENEFITS');
+        let checkHeader = await docsPage.featuresHeader.getText();
+        expect(checkHeader).toBe('FEATURES & BENEFITS');
+    });
+
+    it('check header and card elements on Docs page', async function () {
+        await docsPage.docsButton.click();
+        await docsPage.headerDocsPage.isDisplayed();
+        let checkHeader = await docsPage.headerDocsPage.getText();
+        expect(checkHeader).toBe('What is Angular?');
+    });
+
+    it('check container on Resources page', async function () {
+        await docsPage.resourcesButton.click();
+        await docsPage.resourcesContainer.isDisplayed();
+        expect(await browser.getCurrentUrl()).toBe('https://angular.io/resources');
     });
 
     it('check header and card elements on Docs page', async function () {
@@ -26,17 +39,6 @@ describe('docs page tests', function () {
         await docsPage.headerDocsPage.isDisplayed();
         let checkHeader = docsPage.headerDocsPage.getText();
         expect(await checkHeader).toBe('What is Angular?');
-    });
-
-    it('check container on Resources page', async function () {
-        await docsPage.resourcesButton.click();
-        await docsPage.resourcesContainer.isDisplayed();
-    });
-
-    it('check table on Events page', async function () {
-        await docsPage.eventsButton.click();
-        browser.wait(isDisplayTable, 5000, 'Превышено время ожидания!');
-        await docsPage.eventsTable.isDisplayed();
     });
 
     xit('check url of Blog page', async function () {
@@ -47,17 +49,18 @@ describe('docs page tests', function () {
     });
 
     it('check count of buttons on Docs page header', async function () {
-        expect(await docsPage.listOfButtons.count()).toBe(6);
+        let listOfButtons = await docsPage.listOfButtons.count();
+        expect(listOfButtons).toEqual(6);
     });
 
-    xit('check buttons in header on Docs page', async function () {
+    it('check buttons in header on Docs page', async function () {
         let buttons = docsPage.listOfButtons.map(function (elem, index) {
             return {
                 index: index,
                 text: elem.getText(),
             };
         });
-        expect(await buttons).toEqual([
+        expect(buttons).toEqual([
             {index: 0, text: ''},
             {index: 1, text: 'FEATURES'},
             {index: 2, text: 'DOCS'},
