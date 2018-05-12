@@ -16,7 +16,7 @@ describe('search module tests', function () {
         await searchPage.searchField.clear();
     });
 
-    it('input not valid data in search field', async function () {
+    xit('input not valid data in search field', async function () {
         await searchPage.searchField.click();
         await searchPage.searchField.sendKeys('qwerty');
         browser.wait(isDisplay, 5000, 'Превышено время ожидания!');

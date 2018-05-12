@@ -14,7 +14,7 @@ describe('docs page tests', function () {
         expect(await browser.getCurrentUrl()).toBe('https://angular.io/');
     });
 
-    it('check header on Features page', async function () {
+    xit('check header on Features page', async function () {
         await docsPage.featuresButton.click();
         await docsPage.featuresHeader.isDisplayed();
         let checkHeader = await docsPage.featuresHeader.getText();
@@ -28,7 +28,7 @@ describe('docs page tests', function () {
         expect(checkHeader).toBe('What is Angular?');
     });
 
-    it('check container on Resources page', async function () {
+    xit('check container on Resources page', async function () {
         await docsPage.resourcesButton.click();
         await docsPage.resourcesContainer.isDisplayed();
         expect(await browser.getCurrentUrl()).toBe('https://angular.io/resources');

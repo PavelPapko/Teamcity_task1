@@ -5,6 +5,13 @@ exports.config = {
         search: ['./Specs/search.spec.js', './Specs/navDrawer.spec.js', './Specs/docs.spec.js']
     },
 
+    onPrepare: function() {
+        var AllureReporter = require('jasmine-allure-reporter');
+        jasmine.getEnv().addReporter(new AllureReporter({
+            resultsDir: 'allure-results'
+        }));
+    },
+
     SELENIUM_PROMISE_MANAGER: false,
 
     capabilities: {

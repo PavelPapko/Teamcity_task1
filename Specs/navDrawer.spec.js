@@ -45,14 +45,14 @@ describe('navigation drawer tests', function () {
         expect(introductionHeader).toBe('Tutorial: Tour of Heroes');
     });
 
-    it('check header text on Services page', async function () {
+    xit('check header text on Services page', async function () {
         await navDrawerPage.tutorialDropdown.click();
         await navDrawerPage.tutorialPart6.click();
         let headerText = navDrawerPage.servicesHeader.getText();
         expect(await headerText).toBe('Services');
     });
 
-    it('check header text on Language service page', async function () {
+    xit('check header text on Language service page', async function () {
         await navDrawerPage.techniquesDropdown.click().then();
         await navDrawerPage.languageServiceTab.click().then();
         let headerTexth2 = navDrawerPage.languageServiceTabh2.getText();
