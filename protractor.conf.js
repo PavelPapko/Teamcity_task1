@@ -4,6 +4,11 @@ exports.config = {
     suites: {
         search: ['./Specs/search.spec.js', './Specs/navDrawer.spec.js', './Specs/docs.spec.js']
     },
+
+    SELENIUM_PROMISE_MANAGER: false,
+
+    capabilities: {
+        browserName: 'chrome'},
 /*
     onPrepare: function() {
         var AllureReporter = require('jasmine-allure-reporter');
@@ -26,10 +31,5 @@ exports.config = {
                 done();
             })
         });
-    },
-
-    SELENIUM_PROMISE_MANAGER: false,
-
-    capabilities: {
-        browserName: 'chrome'}
+    }
 };

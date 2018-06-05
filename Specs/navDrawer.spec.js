@@ -9,7 +9,7 @@ describe('navigation drawer tests', function () {
         await browser.get('https://angular.io/docs');
     });
 
-    it('check container on Getting Started page', async function () {
+    xit('check container on Getting Started page', async function () {
         await navDrawerPage.gettingStarted.click();
         await navDrawerPage.gettingStartedContainer.isDisplayed();
         await navDrawerPage.navGettingStarted.isDisplayed();
