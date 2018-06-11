@@ -16,8 +16,9 @@ describe('search module tests', function () {
         await searchPage.searchField.clear();
     });
 
-    xit('input not valid data in search field', async function () {
+    it('input not valid data in search field', async function () {
         await searchPage.searchField.click();
+        browser.waitForAngularEnabled(true);
         await searchPage.searchField.sendKeys('qwerty');
         browser.wait(isDisplay, 5000, 'Превышено время ожидания!');
         let checkSearchRes = await searchPage.searchResultNotValid.getText();

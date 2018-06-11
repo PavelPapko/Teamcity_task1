@@ -11,6 +11,7 @@ describe('navigation drawer tests', function () {
 
     xit('check container on Getting Started page', async function () {
         await navDrawerPage.gettingStarted.click();
+        browser.waitForAngularEnabled(true);
         await navDrawerPage.gettingStartedContainer.isDisplayed();
         await navDrawerPage.navGettingStarted.isDisplayed();
         await navDrawerPage.titleNavGettingStarted.click();
@@ -48,13 +49,15 @@ describe('navigation drawer tests', function () {
     xit('check header text on Services page', async function () {
         await navDrawerPage.tutorialDropdown.click();
         await navDrawerPage.tutorialPart6.click();
+        browser.waitForAngularEnabled(true);
         let headerText = navDrawerPage.servicesHeader.getText();
         expect(await headerText).toBe('Services');
     });
 
     xit('check header text on Language service page', async function () {
-        await navDrawerPage.techniquesDropdown.click().then();
-        await navDrawerPage.languageServiceTab.click().then();
+        await navDrawerPage.techniquesDropdown.click();
+        await navDrawerPage.languageServiceTab.click();
+        browser.waitForAngularEnabled(true);
         let headerTexth2 = navDrawerPage.languageServiceTabh2.getText();
         expect(await headerTexth2).toBe('Autocompletion');
     });
