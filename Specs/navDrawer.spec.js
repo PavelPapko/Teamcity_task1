@@ -9,10 +9,18 @@ describe('navigation drawer tests', function () {
         await browser.get('https://angular.io/docs');
     });
 
+    it('check navdrawer buttons', async function () {
+        await expect (navDrawerPage.titleGettingStarted.getText()).toBe('GETTING STARTED');
+        await expect (navDrawerPage.titleTutorial.getText()).toBe('TUTORIAL');
+        await expect (navDrawerPage.titleFundamentals.getText()).toBe('FUNDAMENTALS');
+        await expect (navDrawerPage.titleAPI.getText()).toBe('API');
+        await expect (navDrawerPage.titleVersion.getText()).toBe('stable (v6.0.4)');
+    });
+
     it('Tutorial Open&Close', async function () {
         await navDrawerPage.tutorialDropdown.click();
         await navDrawerPage.tutorialDropdown.click();
-        await navDrawerPage.tutorialDropdownClose.isPresent()
+        await navDrawerPage.tutorialDropdownClose.isPresent();
     });
 
     it('Navigation Drawer Close When Tutorial Open', async function () {
