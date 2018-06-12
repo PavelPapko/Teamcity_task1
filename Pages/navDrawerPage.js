@@ -5,9 +5,14 @@ var navDrawerPage =  function () {
     this.tutorialDropdown = $('[title^="The Tour"]');
     this.tutorialDropdownClose = $('.vertical-menu-item heading ng-star-inserted level-1 collapsed');
     this.tutorialDropdownList = $('.heading-children level-1 expanded');
-    this.tutorialDropdownCl = $('.heading-children level-1 collapsed')
     this.tutorialPart1 = $('[title^="Part 1:"]');
+    this.tutorialPart2 = $('[title^="Part 2:"]');
+    this.tutorialPart3 = $('[title^="Part 3:"]');
+    this.tutorialPart4 = $('[title^="Part 4:"]');
+    this.tutorialPart5 = $('[title^="Part 5:"]');
     this.tutorialPart6 = $('[title^="Part 6:"]');
+    this.tutorialPart7 = $('[title^="Part 7:"]');
+    this.tutorialPart8 = $('[title^="Part 8:"]');
     this.tutorialIntroductionHeader = $('.no-toc');
     this.servicesHeader = $('h1#services');
     this.techniquesDropdown = $('[title^="Techniques for putting "]');
