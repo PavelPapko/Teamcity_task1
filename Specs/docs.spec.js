@@ -16,26 +16,11 @@ describe('docs page tests', function () {
         expect(await browser.getCurrentUrl()).toBe('https://angular.io/');
     });
 
-    xit('check header on Features page', async function () {
-        await docsPage.featuresButton.click();
-        browser.waitForAngularEnabled(true);
-        await docsPage.featuresHeader.isDisplayed();
-        let checkHeader = await docsPage.featuresHeader.getText();
-        expect(checkHeader).toBe('FEATURES & BENEFITS');
-    });
-
     it('check header and card elements on Docs page', async function () {
         await docsPage.docsButton.click();
         await docsPage.headerDocsPage.isDisplayed();
         let checkHeader = await docsPage.headerDocsPage.getText();
         expect(checkHeader).toBe('What is Angular?');
-    });
-
-    xit('check container on Resources page', async function () {
-        await docsPage.resourcesButton.click();
-        browser.waitForAngularEnabled(true);
-        await docsPage.resourcesContainer.isDisplayed();
-        expect(await browser.getCurrentUrl()).toBe('https://angular.io/resources');
     });
 
     it('check header and card elements on Docs page', async function () {
