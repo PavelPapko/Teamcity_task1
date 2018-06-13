@@ -1,9 +1,6 @@
 describe('docs page tests', function () {
 
     var docsPage = require('../Pages/docsPage');
-    //var EC = protractor.ExpectedConditions;
-    //var isDisplayTable = EC.visibilityOf(docsPage.eventsTable);
-    //var isDisplay = EC.visibilityOf(docsPage.blogUrlWait);
 
     var blogPageUrl = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
@@ -18,14 +15,12 @@ describe('docs page tests', function () {
 
     it('check header and card elements on Docs page', async function () {
         await docsPage.docsButton.click();
-        //await docsPage.headerDocsPage.isDisplayed();
         let checkHeader = await docsPage.headerDocsPage.getText();
         expect(checkHeader).toBe('What is Angular?');
     });
 
     it('check header and card elements on Docs page', async function () {
         await docsPage.docsButton.click();
-        //await docsPage.headerDocsPage.isDisplayed();
         let checkHeader = docsPage.headerDocsPage.getText();
         expect(await checkHeader).toBe('What is Angular?');
     });

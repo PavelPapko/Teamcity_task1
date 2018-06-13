@@ -2,9 +2,6 @@ describe('navigation drawer tests', function () {
 
     var navDrawerPage = require('../Pages/navDrawerPage');
 
-    //var EC = protractor.ExpectedConditions;
-    //var isDisplay = EC.visibilityOf(navDrawerPage.headerStep3GettingStarted);
-
     beforeEach(async function () {
         await browser.get('https://angular.io/docs');
     });
