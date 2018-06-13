@@ -21,14 +21,14 @@ describe('docs page tests', function () {
 
     it('check header and card elements on Docs page', async function () {
         await docsPage.docsButton.click();
-        let checkHeader = docsPage.headerDocsPage.getText();
-        expect(await checkHeader).toBe('What is Angular?');
+        let checkHeader = await docsPage.headerDocsPage.getText();
+        expect(checkHeader).toBe('What is Angular?');
     });
 
     it('check url of Blog page', async function () {
         await docsPage.blogButton.click();
         browser.ignoreSynchronization = true;
-        expect(browser.getCurrentUrl()).toMatch(blogPageUrl);
+        expect(await browser.getCurrentUrl()).toMatch(blogPageUrl);
     });
 
     it('check count of buttons on Docs page header', async function () {
@@ -37,7 +37,7 @@ describe('docs page tests', function () {
     });
 
     it('check buttons in header on Docs page', async function () {
-        let buttons = docsPage.listOfButtons.map(function (elem, index) {
+        let buttons = await docsPage.listOfButtons.map(function (elem, index) {
             return {
                 index: index,
                 text: elem.getText(),
