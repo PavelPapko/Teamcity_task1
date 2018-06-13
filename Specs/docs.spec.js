@@ -13,13 +13,7 @@ describe('docs page tests', function () {
         expect(await browser.getCurrentUrl()).toBe('https://angular.io/');
     });
 
-    it('check header and card elements on Docs page', async function () {
-        await docsPage.docsButton.click();
-        let checkHeader = await docsPage.headerDocsPage.getText();
-        expect(checkHeader).toBe('What is Angular?');
-    });
-
-    it('check header and card elements on Docs page', async function () {
+    it('check header on Docs page', async function () {
         await docsPage.docsButton.click();
         let checkHeader = await docsPage.headerDocsPage.getText();
         expect(checkHeader).toBe('What is Angular?');
@@ -28,7 +22,7 @@ describe('docs page tests', function () {
     it('check url of Blog page', async function () {
         await docsPage.blogButton.click();
         browser.ignoreSynchronization = true;
-        expect(await browser.getCurrentUrl()).toMatch(blogPageUrl);
+        expect(browser.getCurrentUrl()).toMatch(blogPageUrl);
     });
 
     it('check count of buttons on Docs page header', async function () {
@@ -36,20 +30,4 @@ describe('docs page tests', function () {
         expect(listOfButtons).toEqual(6);
     });
 
-    it('check buttons in header on Docs page', async function () {
-        let buttons = await docsPage.listOfButtons.map(function (elem, index) {
-            return {
-                index: index,
-                text: elem.getText(),
-            };
-        });
-        expect(buttons).toEqual([
-            {index: 0, text: ''},
-            {index: 1, text: 'FEATURES'},
-            {index: 2, text: 'DOCS'},
-            {index: 3, text: 'RESOURCES'},
-            {index: 4, text: 'EVENTS'},
-            {index: 5, text: 'BLOG'},
-        ]);
-    });
 });

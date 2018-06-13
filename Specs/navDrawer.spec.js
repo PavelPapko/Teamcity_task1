@@ -14,13 +14,13 @@ describe('navigation drawer tests', function () {
         await expect (navDrawerPage.titleVersion.getText()).toBe('stable (v6.0.4)');
     });
 
-    it('Tutorial Open&Close', async function () {
+    it('tutorial Open&Close', async function () {
         await navDrawerPage.tutorialDropdown.click();
         await navDrawerPage.tutorialDropdown.click();
         await navDrawerPage.tutorialDropdownClose.isPresent();
     });
 
-    it('Navigation Drawer Close When Tutorial Open', async function () {
+    it('navigation Drawer Close When Tutorial Open', async function () {
         await navDrawerPage.tutorialDropdown.click();
         await navDrawerPage.docsMenuButton.click();
         await navDrawerPage.docsMenuButton.click();
