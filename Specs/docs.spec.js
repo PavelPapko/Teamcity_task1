@@ -33,8 +33,6 @@ describe('docs page tests', function () {
     it('check url of Blog page', async function () {
         await docsPage.blogButton.click();
         browser.ignoreSynchronization = true;
-        //browser.wait(isDisplay, 5000, 'Превышено время ожидания!');
-        //expect(await browser.getCurrentUrl()).toBe('https://blog.angular.io/');
         expect(browser.getCurrentUrl()).toMatch(blogPageUrl);
     });
 
